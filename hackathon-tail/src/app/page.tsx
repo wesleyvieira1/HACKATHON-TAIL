@@ -1,10 +1,9 @@
 import { Suspense } from "react";
-import LinkIdentifier from "./components/LinkIdentifier";
+import FormLinkIdentifier from "./components/FormLinkIdentifier"
 
 export default function Home() {
   return (
-    <Suspense fallback={<p>Carregando...</p>}>
-    <LinkIdentifier/>
-    </Suspense>
+    <FormLinkIdentifier />
   );
 }
+
