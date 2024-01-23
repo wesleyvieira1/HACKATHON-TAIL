@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 
 interface FormData{
@@ -10,7 +11,14 @@ interface FormData{
 const FormLinkIdentifier = () =>{
   const { register, handleSubmit, formState: {errors} } = useForm<FormData>()
   const onSubmit = (data: FormData) => {
-    alert(JSON.stringify(data)); //Creio que o axios.post() entre aqui, pq nessa função eu recebo o data, mas eu só printo na tela
+    axios.post("/api/music", JSON.stringify(data))
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  
   }
 
   return (
