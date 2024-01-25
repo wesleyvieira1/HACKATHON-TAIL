@@ -2,26 +2,35 @@ import { NextResponse } from "next/server";
 const { Downloader } = require('ytdl-mp3');
 import ytdl from 'ytdl-core';
 import path from 'path';
+//import ffmpeg from 'fluent-ffmpeg';
+const ffmpeg = require('fluent-ffmpeg');
+const readline = require('readline');
 import * as fs from "fs";
 
 export async function POST(req : Request, res : string) {
     const data = await req.json()
 
-    if (data.linkidentificado.includes("youtube.com")) {
-        console.log("eh youtube")
+    if (data.linkidentificado.includes("youtube.com") || data.linkidentificado.includes("youtu.be")) {
+
 
         let url = data.linkidentificado;
         let videoId = ytdl.getURLVideoID(url);
 
-        const output = path.resolve('.\\public', "audio.mp3");
-        const video = ytdl(url, {filter:'audioonly'});
-        
-        video.pipe(fs.createWriteStream(output));
-
-        video.on("end", () => {
-            console.log("\nDownload Complete")
-
-        })
+        let stream = ytdl(videoId, {
+            quality: 'highestaudio',
+          });
+          
+          let start = Date.now();
+          ffmpeg(stream)
+            .audioBitrate(128)
+            .save(`./public/${videoId}.mp3`)
+            .on('progress', p => {
+              readline.cursorTo(process.stdout, 0);
+              process.stdout.write(`${p.targetSize}kb downloaded`);
+            })
+            .on('end', () => {
+              console.log(`\ndone - ${(Date.now() - start) / 1000}s`);
+            });
 
     }
 
