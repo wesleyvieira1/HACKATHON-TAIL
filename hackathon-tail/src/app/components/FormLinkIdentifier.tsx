@@ -33,13 +33,13 @@ const FormLinkIdentifier = () =>{
           
               <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-2'>
               <input
-                  className="border border-zinc-200 shadow-sm rounded h-10 px-3 max-w-xs outline-none"
+                  className="border border-zinc-200 shadow-sm rounded h-10 px-3 max-w-xs outline-none text-black"
                   type="text"
                   placeholder="Digite ou cole o link..."
 
                   //Registro do input pela variável linkidentificado
                   {...register('linkidentificado', {required:true , validate: (value) =>{
-                    if (!value.includes("youtube.com") && !value.includes("spotify.com") && !value.includes("deezer.com")) {
+                    if (!value.includes("youtube.com")){
                       return false;
                     }
                     return true;
