@@ -16,22 +16,20 @@ function DifficultScreen() {
           className="bg-emerald-500 h-10 rounded max-w-xs hover:bg-emerald-800"
           type="button"
           onClick={() => handleDifficultyClick(1)}
-        >
-          Fácil
-        </button>
+        >Fácil</button>
+
         <button
           className="bg-zinc-500 h-10 rounded max-w-xs hover:bg-zinc-800"
           type="button"
           onClick={() => handleDifficultyClick(2)}
-        >
-          Normal
+        >Normal
         </button>
+
         <button
           className="bg-red-500 h-10 rounded max-w-xs hover:bg-red-800"
           type="button"
           onClick={() => handleDifficultyClick(3)}
-        >
-          Difícil
+        >Difícil
         </button>
 
         {/* Renderiza os componentes FormIdentifier com base na quantidade definida */}
