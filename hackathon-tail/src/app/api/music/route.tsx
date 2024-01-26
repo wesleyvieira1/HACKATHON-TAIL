@@ -12,25 +12,26 @@ export async function POST(req : Request, res : string) {
 
     if (data.linkidentificado.includes("youtube.com") || data.linkidentificado.includes("youtu.be")) {
 
-
         let url = data.linkidentificado;
         let videoId = ytdl.getURLVideoID(url);
 
         let stream = ytdl(videoId, {
             quality: 'highestaudio',
           });
+        
+        let directory = `./public/${videoId}.mp3`
           
-          let start = Date.now();
-          ffmpeg(stream)
-            .audioBitrate(128)
-            .save(`./public/${videoId}.mp3`)
-            .on('progress', p => {
-              readline.cursorTo(process.stdout, 0);
-              process.stdout.write(`${p.targetSize}kb downloaded`);
-            })
-            .on('end', () => {
-              console.log(`\ndone - ${(Date.now() - start) / 1000}s`);
-            });
+        let start = Date.now();
+        ffmpeg(stream)
+          .audioBitrate(128)
+          .save(directory)
+          .on('progress', p => {
+            readline.cursorTo(process.stdout, 0);
+            process.stdout.write(`${p.targetSize}kb downloaded`);
+          })
+          .on('end', () => {
+            console.log(`\ndone - ${(Date.now() - start) / 1000}s`);
+        });
 
     }
 
