@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-import webpack from 'webpack';
+//import webpack from 'webpack';
 //const webpack = require('webpack')
 
 const nextConfig = {
@@ -7,6 +7,9 @@ const nextConfig = {
       config.plugins.push(
         new webpack.DefinePlugin({
           'process.env.FLUENTFFMPEG_COV': false
+      }),
+      new webpack.IgnorePlugin({
+        resourceRegExp : /^fsevents$/
       })
       )
    
