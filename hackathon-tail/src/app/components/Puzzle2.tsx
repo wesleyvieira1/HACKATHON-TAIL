@@ -31,7 +31,7 @@ const DraggableItem: React.FC<DraggableItemProps> = ({ item, onRemove }) => {
 
   return (
     <div className='flex items-center'>
-      <audio controls ref={drag} style={{padding: '10px', margin: '10px', cursor: 'move' }}>
+      <audio controls ref={drag} className='p-3 m-3'>
         <source src={item.audioSrc} type="audio/mp3" />
       </audio>
       <button onClick={onRemove} className='bg-red-500 h-10 text-white rounded p-2 ml-3'>Remover</button>
@@ -48,7 +48,7 @@ const Frame: React.FC<FrameProps> = ({ frameId, items, onDrop, onRemove }) => {
   return (
     <div className='flex justify-center'>
         <div className='bg-black w-80 rounded-lg p-2' ref={drop}>
-            <p className='text-white'>Musica  {frameId}</p>
+            <p className='text-white'>Música  {frameId}</p>
                 {items.map((item) => (
                      <DraggableItem key={item.id} item={item} onRemove={() => onRemove(item)} />
                 ))}
@@ -129,7 +129,7 @@ const DragAndDropContainer: React.FC = () => {
             ))}
             </div>
       </div>
-      <button onClick={handleEnviar} className='bg-blue-700 items-center text-white rounded p-2 text-center justify-center'>Enviar Quadros</button>
+      <button onClick={handleEnviar} className='shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 ... items-center  rounded p-2 text-center justify-center w-80 mt-10 hover:shadow-lg'>Enviar Resposta</button>
       </div>
       
     </DndProvider>
