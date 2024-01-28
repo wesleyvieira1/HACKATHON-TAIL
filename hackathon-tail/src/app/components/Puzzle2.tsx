@@ -31,10 +31,10 @@ const DraggableItem: React.FC<DraggableItemProps> = ({ item, onRemove }) => {
 
   return (
     <div className='flex items-center'>
-      <audio controls ref={drag} className='p-3 m-3'>
-        <source src={item.audioSrc} type="audio/mp3" />
+      <audio  controls ref={drag} className='p-3 m-3'>
+        <source className='bg-black' src={item.audioSrc} type="audio/mp3" />
       </audio>
-      <button onClick={onRemove} className='bg-red-500 h-10 text-white rounded p-2 ml-3'>Remover</button>
+      <button onClick={onRemove} className='bg-red-700 h-10 text-white rounded p-2 w-8 ml-1'>x</button>
     </div>
   );
 };
@@ -47,8 +47,8 @@ const Frame: React.FC<FrameProps> = ({ frameId, items, onDrop, onRemove }) => {
 
   return (
     <div className='flex justify-center'>
-        <div className='bg-black w-80 rounded-lg p-2' ref={drop}>
-            <p className='text-white'>Música  {frameId}</p>
+        <div className='bg-white w-80 rounded-lg p-2' ref={drop}>
+            <p className='text-white bg-black rounded h-10 flex items-center justify-center'>Música  {frameId}</p>
                 {items.map((item) => (
                      <DraggableItem key={item.id} item={item} onRemove={() => onRemove(item)} />
                 ))}
@@ -110,7 +110,7 @@ const DragAndDropContainer: React.FC = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className='h-screen flex flex-col gap-4 justify-center items-center'>
+      <div className='h-screen flex flex-col gap-4 justify-center items-center bg-zinc-500'>
       <div className='flex gap-5 text-center'>
           <div className='flex gap-4'>
           {frames.map((items, index) => (
@@ -129,7 +129,7 @@ const DragAndDropContainer: React.FC = () => {
             ))}
             </div>
       </div>
-      <button onClick={handleEnviar} className='shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 ... items-center  rounded p-2 text-center justify-center w-80 mt-10 hover:shadow-lg'>Enviar Resposta</button>
+      <button onClick={handleEnviar} className='text-white font-semibold shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 ... items-center  rounded p-2 text-center justify-center w-80 mt-10 hover:shadow-lg'>Enviar Resposta</button>
       </div>
       
     </DndProvider>
