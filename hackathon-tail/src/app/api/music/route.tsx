@@ -86,11 +86,11 @@ async function getDelay(seconds : number) {
 
 export async function POST(req : Request, res : string) {
     const data = await req.json()
+    console.log(data)
     
-    let url = data.linkidentificado;
-    let links = [url, 'https://www.youtube.com/watch?v=8ESd3A9D-3E&ab_channel=BalaclavaRecords']
+    let links = [data.linkIdentificado1, data.linkIdentificado2]
 
-    //console.log(links)
+    console.log(links)
 
     try {
 
@@ -101,7 +101,7 @@ export async function POST(req : Request, res : string) {
       //await getTracks(`${process.env.API_KEY}`);
       //await getDelay(25);
 
-      await getTimeStamp(`${process.env.API_KEY}`);
+      //await getTimeStamp(`${process.env.API_KEY}`);
       //await getDelay(10)
 
       return NextResponse.json({data})
