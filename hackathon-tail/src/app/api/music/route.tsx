@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-const { Downloader } = require('ytdl-mp3');
 import ytdl from 'ytdl-core';
 import Moises from "moises/sdk.js";
 const ffmpeg = require('fluent-ffmpeg');
-const readline = require('readline');
 
 export async function POST(req : Request, res : string) {
     const data = await req.json()
