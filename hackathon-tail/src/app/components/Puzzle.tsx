@@ -34,21 +34,21 @@ const Square: React.FC<SquareProps> = ({ id, name, type, index, moveSquare }) =>
   });
 
   return (
-    <div ref={(node) => ref(drop(node))} className='bg-blue-100 m-1 p-10 rounded-lg'>
-      {name}
-    </div>
+    <audio
+      ref={(node) => ref(drop(node))}
+      controls
+      style={{ border: '1px solid #000', padding: '10px', margin: '5px' }}
+    >
+      <source src={name} type="audio/mp3" />
+    </audio>
   );
 };
 
 const Board: React.FC = () => {
   const [squares, setSquares] = useState([
-    { id: '1', name: 'Square 1', type: 'SQUARE', index: 0 },
-    { id: '2', name: 'Square 2', type: 'SQUARE', index: 1 },
-    { id: '3', name: 'Square 3', type: 'SQUARE', index: 2 },
-    { id: '4', name: 'Square 4', type: 'SQUARE', index: 3 },
-    { id: '5', name: 'Square 5', type: 'SQUARE', index: 4 },
-    { id: '6', name: 'Square 6', type: 'SQUARE', index: 5 },
-    { id: '7', name: 'Square 7', type: 'SQUARE', index: 6 },
+    { id: '1', name: 'path/to/audio1.mp3', type: 'SQUARE', index: 0 },
+    { id: '2', name: 'path/to/audio2.mp3', type: 'SQUARE', index: 1 },
+    { id: '3', name: 'path/to/audio3.mp3', type: 'SQUARE', index: 2 },
   ]);
 
   const moveSquare = (dragIndex: number, hoverIndex: number) => {
@@ -64,7 +64,7 @@ const Board: React.FC = () => {
   return (
     <div className='h-screen flex flex-col items-center justify-center gap-60'>
       <h2 className='text-white font-bold text-base'>EnigMusic</h2>
-      <div className="flex justify-center items-center">
+      <div className="grid justify-center items-center">
         {squares.map((square) => (
           <Square key={square.id} {...square} moveSquare={moveSquare} />
         ))}
