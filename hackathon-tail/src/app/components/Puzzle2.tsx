@@ -30,12 +30,11 @@ const DraggableItem: React.FC<DraggableItemProps> = ({ item, onRemove }) => {
   });
 
   return (
-    <div>
-      <audio controls ref={drag} style={{ border: '1px solid #000', padding: '10px', margin: '10px', cursor: 'move' }}>
+    <div className='flex items-center'>
+      <audio controls ref={drag} style={{padding: '10px', margin: '10px', cursor: 'move' }}>
         <source src={item.audioSrc} type="audio/mp3" />
-        Your browser does not support the audio element.
       </audio>
-      <button onClick={onRemove} className='bg-red-500 text-white rounded p-2 ml-3'>Remover</button>
+      <button onClick={onRemove} className='bg-red-500 h-10 text-white rounded p-2 ml-3'>Remover</button>
     </div>
   );
 };
@@ -48,8 +47,8 @@ const Frame: React.FC<FrameProps> = ({ frameId, items, onDrop, onRemove }) => {
 
   return (
     <div className='flex justify-center'>
-        <div className='bg-black w-80' ref={drop}>
-            <p className='text-white'>Frame {frameId}</p>
+        <div className='bg-black w-80 rounded-lg p-2' ref={drop}>
+            <p className='text-white'>Musica  {frameId}</p>
                 {items.map((item) => (
                      <DraggableItem key={item.id} item={item} onRemove={() => onRemove(item)} />
                 ))}
@@ -105,32 +104,34 @@ const DragAndDropContainer: React.FC = () => {
       // Exibindo os dados no alerta
       alert(JSON.stringify(frameData, null, 2));
     } catch (error) {
-      console.error('Erro ao enviar quadros:', error.message);
+      console.error('Erro ao enviar quadros:', error);
     }
   };
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className='flex justify-center items-center'>
-      <div style={{ display: 'flex' }} className='flex gap-5 text-center'>
-        {frames.map((items, index) => (
-          <Frame
+      <div className='h-screen flex flex-col gap-4 justify-center items-center'>
+      <div className='flex gap-5 text-center'>
+          <div className='flex gap-4'>
+          {frames.map((items, index) => (
+            <Frame
             key={index}
             frameId={index.toString()}
             items={items}
             onDrop={(draggedItem) => handleDrop(draggedItem, index.toString())}
             onRemove={handleRemove}
           />
-        ))}
-        <div>
-          {availableItems.map((item) => (
-            <DraggableItem key={item.id} item={item} onRemove={() => handleRemove(item)} />
           ))}
-        </div>
-      </div>
-      
+          </div>
+            <div>
+            {availableItems.map((item) => (
+                <DraggableItem key={item.id} item={item} onRemove={() => handleRemove(item)} />
+            ))}
+            </div>
       </div>
       <button onClick={handleEnviar} className='bg-blue-700 items-center text-white rounded p-2 text-center justify-center'>Enviar Quadros</button>
+      </div>
+      
     </DndProvider>
   );
 };
