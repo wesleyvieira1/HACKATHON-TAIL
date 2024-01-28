@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // Interface para os dados do formulário
 interface FormData {
@@ -69,7 +70,7 @@ const FormLinkIdentifier = () => {
             <p className="error-message text-red-600">Pelo menos um dos links é inválido</p>
           )}
 
-          <button onClick={() => handleSubmit(onSubmit)()} className="shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 rounded font-semibold text-white h-10" type='submit'>Jogar</button>
+          <button className="shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 rounded font-semibold text-white h-10"><Link to='/puzzle' onClick={() => handleSubmit(onSubmit)()}  type='submit'>Jogar</Link></button>
         </div>
       </div>
     </div>
