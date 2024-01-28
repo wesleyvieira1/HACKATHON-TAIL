@@ -62,7 +62,7 @@ const Board: React.FC = () => {
   };
 
   return (
-    <div className='h-screen flex flex-col items-center justify-center gap-60'>
+    <div className='h-screen flex flex-col items-center justify-center gap-40'>
       <h2 className='text-white font-bold text-base'>EnigMusic</h2>
       <div className="grid justify-center items-center">
         {squares.map((square) => (
