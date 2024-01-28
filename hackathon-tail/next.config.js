@@ -1,10 +1,10 @@
 module.exports = {
-    async redirects() {
+    //Permite o refresh na rotação das páginas
+    async rewrites() {
       return [
         {
-          source: '/jogar',
-          destination: '/jogar', 
-          permanent: true,
+          source: '/:path*',
+          destination: '/',
         },
       ];
     },
