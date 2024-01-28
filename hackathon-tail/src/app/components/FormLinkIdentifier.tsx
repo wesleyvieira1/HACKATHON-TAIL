@@ -30,18 +30,19 @@ const FormLinkIdentifier = () => {
 
   // Retorno do componente em HTML
   return (
-    <div className="h-screen flex items-center justify-center bg-zinc-700">
-      <div className='bg-zinc-900 h-96 w-96 p-10 flex justify-center items-center shadow-lg rounded-full flex-col'>
+    <div className="h-screen flex items-center justify-center bg-gray-500">
+      <div className='bg-white h-60 w-96 flex justify-center items-center shadow-md rounded flex-col'>
       
       <div className='flex flex-col gap-4 w-full max-w-xs'>
 
         <div className="flex flex-col gap-4">
 
           <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-2'>
+          <h3 className="text-base font-semibold mb-3 text-gray-900 text-center">Vamos Jogar? Digite ou cole o link</h3>
             <input
-              className="border border-zinc-200 shadow-sm rounded h-10 px-3 max-w-xs outline-none text-black"
+              className="border border-zinc-200 shadow-sm rounded h-10 px-3 max-w-xs outline-none text-black bg-gray-200"
               type="text"
-              placeholder="Digite ou cole o link..."
+              placeholder="Música 1..."
               {...register('linkIdentificado1', {
                 required: true,
                 validate: (value) => {
@@ -53,9 +54,9 @@ const FormLinkIdentifier = () => {
               })}
             />
             <input
-              className="border border-zinc-200 shadow-sm rounded h-10 px-3 max-w-xs outline-none text-black"
+              className="border border-zinc-200 shadow-sm rounded h-10 px-3 max-w-xs outline-none text-black bg-gray-200"
               type="text"
-              placeholder="Digite ou cole o link..."
+              placeholder="Música 2..."
               {...register('linkIdentificado2', {
                 required: true,
                 validate: (value) => {

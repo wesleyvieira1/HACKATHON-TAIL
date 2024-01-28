@@ -16,7 +16,7 @@ export default class Welcome extends Component {
                             <p className="mt-6 text-lg leading-8 text-neutral-400">Jogo de quebra-cabeça desenvolvido utilizando a API do <a href='https://music.ai/?click_section=header_api' className='text-moisesai-color rounded p-2 bg-black'>Moises</a></p>
                             <div className="mt-10 flex items-center justify-center gap-x-6">
                                 <Link to='/jogar' className="w-40 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500">Jogar</Link>
-                                <Link to='' target='_blank' className="text-sm font-semibold leading-6 text-white">Como Jogar <span aria-hidden="true">→</span></Link>
+                                <Link to='/como-jogar'className="text-sm font-semibold leading-6 text-white">Como Jogar <span aria-hidden="true">→</span></Link>
                             </div>
                         </div>
                     </div>
