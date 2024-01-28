@@ -29,7 +29,6 @@ const FormLinkIdentifier = () =>{
     <div className="flex items-center justify-center">
         <div className='flex flex-col gap-4 w-full max-w-xs'>
           <div className="flex flex-col gap-1">
-          <h1 className="text-white">Vamos Jogar? Coloque sua Música abaixo</h1>
           
               <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-2'>
               <input
