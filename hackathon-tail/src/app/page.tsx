@@ -5,7 +5,7 @@ import Puzzle2 from "./components/Puzzle2";
 
 export default function Home() {
   return (
-    <Puzzle2 />
+    <FormLinkIdentifier />
   );
 }
 
