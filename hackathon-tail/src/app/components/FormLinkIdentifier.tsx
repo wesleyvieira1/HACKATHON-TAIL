@@ -69,7 +69,7 @@ const FormLinkIdentifier = () => {
             <p className="error-message text-red-600">Pelo menos um dos links é inválido</p>
           )}
 
-          <button className="shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 rounded font-semibold text-white h-10" type='submit'>Jogar</button>
+          <button onClick={() => handleSubmit(onSubmit)()} className="shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 rounded font-semibold text-white h-10" type='submit'>Jogar</button>
         </div>
       </div>
     </div>
