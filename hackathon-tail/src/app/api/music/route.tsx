@@ -57,7 +57,8 @@ async function getTimeStamp(key : string) {
   const moises = new Moises({apiKey : key})
  
   //const folderName: string[] = getFolderNames('public/output/tracks');
-  const folderName = fs.readdirSync('./public/output/tracks')
+  const oldFolderName = fs.readdirSync('./public/output/tracks')
+  const folderName = oldFolderName.filter(item => item !== "cutTracks")
   console.log(`./public/output/tracks/${folderName[0]}`)
   console.log(`./public/output/tracks/${folderName[1]}`)
 
@@ -91,8 +92,10 @@ async function cutAudios(file: string, start: number, output: string) {
 
 async function processAudios(folders : string[]) {
   var count = 1
-  folders.splice(1, 1)
-  folders.forEach(element => {
+  console.log(folders)
+  const newFolders =  folders.filter(item => item !== 'cutTracks')
+  console.log(newFolders)
+  newFolders.forEach(element => {
     if (count == 1) {
       console.log(`count = ${count}`)
       console.log(element)
@@ -169,25 +172,26 @@ export async function POST(req : Request, res : string) {
     
     let links = [data.linkIdentificado1, data.linkIdentificado2]
 
-    console.log(links)
+    //console.log(links)
 
     try {
 
-      await downloadVideo(links[0]);
-      await downloadVideo(links[1]);
-      await getDelay(20);
+      //await downloadVideo(links[0]);
+      //await downloadVideo(links[1]);
+      //await getDelay(30);
 
-      await getTracks(`${process.env.API_KEY}`);
-      await getDelay(30);
+      //await getTracks(`${process.env.API_KEY}`);
+      //await getDelay(30);
 
-      const folders = await getTimeStamp(`${process.env.API_KEY}`);
+      /*const folders = await getTimeStamp(`${process.env.API_KEY}`);
       await getDelay(20)
       await processAudios(folders)
       await getDelay(20)
       const resData = await uploadFiles(`${process.env.API_KEY}`)
       await getDelay(20)
+      console.log(resData)*/
 
-      return NextResponse.json({resData})
+      return NextResponse.json({data})
 
     } catch (error) {
       console.log(error)
