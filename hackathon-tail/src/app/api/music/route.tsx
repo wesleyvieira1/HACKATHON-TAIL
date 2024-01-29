@@ -92,6 +92,8 @@ async function cutAudios(file: string, start: number, output: string) {
 
 async function processAudios(folders : string[]) {
   var count = 1
+  const newFolder = folders.filter(item => item !== 'cutTracks')
+  newFolder.forEach(element => {
   console.log(folders)
   const newFolders =  folders.filter(item => item !== 'cutTracks')
   console.log(newFolders)
