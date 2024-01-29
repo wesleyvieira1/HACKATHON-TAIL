@@ -81,7 +81,7 @@ const DragAndDropContainer: React.FC = () => {
     setAvailableItems((prevItems) => prevItems.filter((prevItem) => prevItem.id !== draggedItem.id));
 
     const audio = new Audio(draggedItem.audioSrc);
-    audio.play();
+    
   };
 
   const handleRemove = (removedItem: Item) => {
