@@ -6,6 +6,7 @@ import Puzzle from "./components/Puzzle";
 import Puzzle2 from "./components/Puzzle2";
 import Welcome from "./components/Welcome";
 import ComoJogar from "./components/ComoJogar";
+import { Venceu } from "./components/Venceu";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Route path="/" element={<Welcome />} />
         <Route path="/puzzle" element={<Puzzle2 />} />
         <Route path="/como-jogar" element={<ComoJogar />} />
+        <Route path="/venceu" element={<Venceu />} />
       </Routes>
     </Router>
   );

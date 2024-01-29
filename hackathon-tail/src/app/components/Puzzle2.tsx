@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { Link } from 'react-router-dom';
 
 interface Item {
   id: string;
@@ -129,7 +130,7 @@ const DragAndDropContainer: React.FC = () => {
             ))}
             </div>
       </div>
-      <button onClick={handleEnviar} className='text-white font-semibold shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 ... items-center  rounded p-2 text-center justify-center w-80 mt-10 hover:shadow-lg'>Enviar Resposta</button>
+      <Link className="className='text-white font-semibold shadow-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 ... items-center  rounded p-2 text-center justify-center w-80 mt-10 hover:shadow-lg" to={'/venceu'}>Enviar Resposta</Link>
       </div>
       
     </DndProvider>
