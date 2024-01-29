@@ -3,7 +3,7 @@ import ytdl from 'ytdl-core';
 import Moises from "moises/sdk.js";
 const ffmpeg = require('fluent-ffmpeg');
 import fs from 'fs';
-
+/*
 async function downloadVideo(url : string) {
     try {
 
@@ -134,7 +134,7 @@ async function processAudios(folders : string[]) {
       })
     }
   });
-}
+});
 
 async function uploadFiles(key : string) {
   const files = fs.readdirSync("public/output/tracks/cutTracks")
@@ -167,7 +167,7 @@ async function getDelay(seconds : number) {
       }, 1000 * seconds);
     });
   }
-
+*/
 export async function POST(req : Request, res : string) {
     const data = await req.json()
     console.log(data)

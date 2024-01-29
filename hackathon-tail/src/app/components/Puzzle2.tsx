@@ -61,12 +61,12 @@ const Frame: React.FC<FrameProps> = ({ frameId, items, onDrop, onRemove }) => {
 const DragAndDropContainer: React.FC = () => {
   const [frames, setFrames] = useState<Array<Item[]>>([[], []]);
   const [availableItems, setAvailableItems] = useState<Item[]>([
-    { id: '1', content: 'Item 1', audioSrc: 'path/to/audio1.mp3' },
-    { id: '2', content: 'Item 2', audioSrc: 'path/to/audio2.mp3' },
-    { id: '3', content: 'Item 3', audioSrc: 'path/to/audio3.mp3' },
-    { id: '4', content: 'Item 4', audioSrc: 'path/to/audio4.mp3' },
-    { id: '5', content: 'Item 5', audioSrc: 'path/to/audio5.mp3' },
-    { id: '6', content: 'Item 6', audioSrc: 'path/to/audio6.mp3' },
+    { id: '1', content: 'Item 1', audioSrc: '/drums.mp3' },
+    { id: '2', content: 'Item 2', audioSrc: '/drums2.mp3' },
+    { id: '3', content: 'Item 3', audioSrc: '/piano.mp3' },
+    { id: '4', content: 'Item 4', audioSrc: '/guitars.mp3' },
+    { id: '5', content: 'Item 5', audioSrc: '/guitars2.mp3' },
+    { id: '6', content: 'Item 6', audioSrc: '/piano2.mp3' },
     // Adicione mais itens conforme necessário
   ]);
 
