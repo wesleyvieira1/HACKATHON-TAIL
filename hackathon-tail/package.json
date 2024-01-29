@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@material-tailwind/react": "^2.1.8",
     "@types/react-beautiful-dnd": "^13.1.8",
     "ffmpeg": "^0.0.4",

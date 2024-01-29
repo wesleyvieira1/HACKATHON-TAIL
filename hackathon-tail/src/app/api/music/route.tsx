@@ -91,8 +91,8 @@ async function cutAudios(file: string, start: number, output: string) {
 
 async function processAudios(folders : string[]) {
   var count = 1
-  folders.splice(1, 1)
-  folders.forEach(element => {
+  const newFolder = folders.filter(item => item !== 'cutTracks')
+  newFolder.forEach(element => {
     if (count == 1) {
       console.log(`count = ${count}`)
       console.log(element)
@@ -181,11 +181,11 @@ export async function POST(req : Request, res : string) {
       await getDelay(30);
 
       const folders = await getTimeStamp(`${process.env.API_KEY}`);
-      await getDelay(20)
+      await getDelay(40)
       await processAudios(folders)
       await getDelay(20)
       const resData = await uploadFiles(`${process.env.API_KEY}`)
-      await getDelay(20)
+      await getDelay(30)
 
       return NextResponse.json({resData})
 
